@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link  th:href="@{/css/bootcss_icon.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/scene.css}" rel="stylesheet" type="text/css">
+<!-- easyui-js -->
+<script  th:src="@{/js/jquery.min.js}"></script>
+<script  th:src="@{/js/jquery.easyui.min.js}"></script>
+<script  th:src="@{/js/easyui-lang-zh_CN.js}"></script>
+<!-- 扩展基础类js -->
+<script  th:src="@{/js/jquery.jdirk.min.js}"></script>
+<!-- 扩展css -->
+<link  th:href="@{/css/ext/jeasyui.extensions.css}" rel="stylesheet" type="text/css" />
+<!-- 所有扩展js -->
+<script th:src="@{/js/ext/jeasyui.extensions.all.min.js}"></script>
+<!-- jquery和easyui的扩展 -->
+<script th:src="@{/js/ext/jquery.comm.ext.js}"></script>
+<!-- 全局js和自定义css -->
+<script th:src="@{/js/global_message.js}"></script>
+<script th:src="@{/js/jquery.common.js}"></script>
+<script>
+	// 防止在IE环境下，没有开启调试模式出现浏览器报错的情况
+	if (!window.console) console = {};
+	console.log = console.log || function(){};
+	console.warn = console.warn || function(){};
+	console.error = console.error || function(){};
+	console.info = console.info || function(){};
+</script>
+</head>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunjy.secret.demo.young.mapper.TPLoggerMapper">
+  <resultMap id="BaseResultMap" type="com.sunjy.secret.demo.young.domain.TPLogger">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ip_addr" jdbcType="VARCHAR" property="ipAddr" />
+    <result column="operation_type" jdbcType="VARCHAR" property="operationType" />
+    <result column="clo_1" jdbcType="VARCHAR" property="clo1" />
+    <result column="clo_2" jdbcType="VARCHAR" property="clo2" />
+    <result column="clo_3" jdbcType="VARCHAR" property="clo3" />
+    <result column="clo_4" jdbcType="VARCHAR" property="clo4" />
+  </resultMap>
+</mapper>

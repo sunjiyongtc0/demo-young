@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>IPv6/4对比分析</title>
+<link  th:href="@{../css/newstyle.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/bootcss_icon.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/themes/default/easyui.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/red.css}" rel="stylesheet" type="text/css">
+<script th:src="@{/js/jquery.easyui.min.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/icheck.js?v=1.0.2}"></script>
+
+<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+  <script>
+    $(document).ready(function (){
+      //checkbox
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_flat-red',
+        radioClass: 'iradio_flat-red'
+      });
+      $(".sub_menu").hide();
+      $(".nav ul li").hover(
+              function(){
+                $(this).children("div.sub_menu").show();
+                $(this).addClass("dubhover");
+              },
+              function(){
+                $(this).children("div.sub_menu").hide();
+                $(this).removeClass("dubhover");
+              }
+      )
+    })
+  </script>
+</head>
+<!--top导航-->
+<%@ include file="/comm/comm_top.jsp"%>
+<!--/top导航-->
+<!--二级导航-->
+<div class="sub_nav_bj">
+  <div class="sub_nav">
+    <h2 class="sub_h2">IPV6/V4对比分析</h2>
+  </div>
+</div>
+<!--/二级导航-->
+<div class="main clearfix" >
+  <div class="h10"></div>
+  <!--左侧table-->
+  <div class="ipv-left clearfix"  style="font-size:10px">
+    <!--       	<table id="tab1" width="100%" border="0" cellspacing="0" cellpadding="0" class="pos-ipv"  style="height:565px;overflow:auto;">地名*固定位置*
+                <tbody>
+                  <tr>
+                    <th>&nbsp;</th>
+                  </tr>
+                  <tr>
+                    <th>&nbsp;</th>
+                  </tr>
+                </tbody>
+              </table> -->
+    <div class="ipv-detail"> <!--可滚动表格内容-->
+      <table id="tab2" border="0" c ellspacing="0" cellpadding="0" class="ipv-detail-tab" width="220" >
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="ipv-ranking clearfix">
+    <h2 class="timing borleft_radius">质差链路排名</h2>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ipv-rank-th">
+      <tbody>
+      <tr>
+        <th width="11%">序号</th>
+        <th width="17%">源</th>
+        <th width="17%">目的</th>
+        <th width="16%">V6</th>
+        <th width="16%">V4</th>
+        <th>差值</th>
+      </tr>
+      </tbody>
+    </table>
+    <div class="ipv-rank-con">
+      <table  id="table2" width="100%" border="0" cellspacing="0" cellpadding="0" class="ipv-rank-tab">
+        <tbody>
+        <tr>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="h10"></div>
+  <div class="table_con1260 bor clearfix"  id="tradiv">
+    <!--Trace对比分析-->
+    <h2 class="timing borleft_radius">Trace对比分析</h2>
+    <div class="clearfix par10">
+      <div class="ipv-chart"><!--对比图表-->
+        <div class="ipv-city floleft"><!--正向-->
+          <div class="city-tarce" id="Htrace">
+          </div>
+          <div class="trace-chart" id="curve1" style="height: 160px;">
+          </div>
+        </div>
+        <div class="ipv-city floright"><!--反向-->
+          <div class="city-tarce" id="Ttrace">
+          </div>
+          <div class="trace-chart" id="curve2" style="height: 160px;">
+            <!-- <img src="images/v64.png"> -->
+          </div>
+        </div>
+      </div><!--END对比图表-->
+      <div class="h10"></div>
+      <div class="ipv-contrast"><!--对比列表-->
+        <table  id="tratab" width="100%" border="0" cellspacing="0" cellpadding="0"  class="ipv-tab">
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="h10"></div>
+</div>
+</div>
+<script type="text/javascript" th:src="@{/js/echarts-2.2.0/build/dist/echarts.js}"></script>
+<script th:src="@{/poj/trace-v64.js}"></script>
+</body>
+</html>

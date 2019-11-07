@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>国际出口监测网络质量监测</title>
+    <head th:include="comm_head_scene">
+</head>
+<body>
+<script type="text/javascript" th:src="@{/poj/World_gaugeData.js}"></script>
+<div  style="display:none">
+			<span class="parleft45 floleft">指标 <input
+                    class="easyui-combobox selt w200" name="" id="combox_quota" /> </span>
+    <span class="parleft45 choice floleft"> <input type="text"
+                                                   name="" placeholder="选择时间" value="" id="text_datetime"
+                                                   class="inpt w160 date floleft"
+                                                   onFocus="WdatePicker({isShowClear:false,readOnly:true,maxDate:'%y-%M-%d'})">
+				<i id="i_update" class="update" style="margin-top: 0px;">更新</i> </span>
+</div>
+<div class="page clearfix">
+    <div class="unicon-bj">
+        <p class="unicon-logo"><span class="kong"></span>互联网质量监测系统</p>
+        <div class="all_top">国际出口监测网络质量监测</div>
+        <div class="bg_grid">
+            <div class="bg_chu_map_bg">
+                <div class="yibp clearfix" id="country_gateway">
+                    <div class="left_title">国际网关</div>
+                </div>
+                <div class="top6" id="intl_gateway">
+                    <div class="left_title2">国际方向</div>
+                </div>
+                <div class="chu_map_area_left">
+                    <div class="all-map txtmid">
+                        <div id="div_map"></div>
+                    </div>
+                    <div  class="miit_map_tip_ul bg_ti_bj" style="left:auto;right:14rem;top:22rem; bottom:auto;">
+                        <table cellpadding="0" cellspacing="0" border="0" class="txtmid" width="100%">
+                            <tr>
+                                <td>图例</td>
+                                <td id="th_quota">时延</td>
+                            </tr>
+                            <tr>
+                                <td class="span_cor_green"><span class="span_bgcor_green"></span>&nbsp;优</td>
+                                <td class="span_cor_green" id="td_good">>300</td>
+                            </tr>
+                            <tr>
+                                <td class="span_cor_yellow"><span class="span_bgcor_yellow"></span>&nbsp;良</td>
+                                <td class="span_cor_yellow" id="td_normal">>300</td>
+                            </tr>
+                            <tr>
+                                <td class="span_cor_red"><span class="span_bgcor_red"></span>&nbsp;差</td>
+                                <td class="span_cor_red" id="td_bad">&gt;300</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="txtmid w230 miit_map_right" style="top:30px;">
+                        <div class="miit_tab_h3">
+                            <span class="inter_tab_h3_expand" id="showOrHide" onclick="showOrHide()"></span>
+                            <span>国际方向时延列表(ms)</span>
+                            <span class="miit_arr_area">
+										<b onclick="prepage();" class="floleft miit_arr_left" ></b>
+										<b onclick="nextpage();" class="floleft miit_arr_right" ></b>
+									</span>
+                        </div>
+                        <table border="0" cellspacing="0" cellpadding="0" class="miit_tab_title" width="100%">
+                            <tr class="common_map_tab_title">
+                                <th width="10%" class="txtmid">序号</th>
+                                <th class="zg" width="15%" style="display:none">中国</th>
+                                <th class="gz" width="15%" style="display:none">广州</th>
+                                <th class="sh" width="15%" style="display:none">上海</th>
+                                <th class="bj" width="15%" style="display:none">北京</th>
+                                <th width="15%">目标</th>
+                            </tr>
+                            <tbody id="table_world">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/mustache/mustache.js}"></script>
+<script type="text/javascript" th:src="@{/js/My97DatePicker/WdatePicker.js}"></script>
+<script type="text/javascript" th:src="@{/js/echarts-2.2.0/build/dist/echarts-all.js}" ></script>
+<!-- Echarts单文件引用 -->
+<script type="text/javascript" th:src="@{/poj/World_main.js}"></script>
+<script type="text/javascript" th:src="@{/poj/World_index.js}"></script>
+<script type="text/javascript" th:src="@{/poj/World_gauge.js}"></script>
+</body>
+</html>

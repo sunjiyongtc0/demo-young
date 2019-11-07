@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunjy.secret.demo.young.mapper.TCRegionMapper">
+  <resultMap id="BaseResultMap" type="com.sunjy.secret.demo.young.domain.TCRegion">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="r_code" jdbcType="BIGINT" property="rCode" />
+    <result column="r_name" jdbcType="VARCHAR" property="rName" />
+    <result column="r_en_name" jdbcType="VARCHAR" property="rEnName" />
+    <result column="r_level" jdbcType="TINYINT" property="rLevel" />
+    <result column="r_parent_code" jdbcType="BIGINT" property="rParentCode" />
+    <result column="r_name_relation" jdbcType="VARCHAR" property="rNameRelation" />
+    <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+  </resultMap>
+</mapper>

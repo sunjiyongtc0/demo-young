@@ -1,0 +1,27 @@
+.icon-standard-hmenu-asc{
+	background:url('icons/hmenu-asc.gif') no-repeat center center;
+}
+.icon-standard-hmenu-desc{
+	background:url('icons/hmenu-desc.gif') no-repeat center center;
+}
+.icon-standard-application-view-columns{
+	background:url('icons/application-view-columns.png') no-repeat center center;
+}
+.icon-standard-application-view-list{
+	background:url('icons/application-view-list.png') no-repeat center center;
+}
+.icon-standard-application-view-tile{
+	background:url('icons/application-view-tile.png') no-repeat center center;
+}
+.icon-restart1{
+	background:url('icons/restart1.png') no-repeat center center;
+}
+.icon-restart2{
+	background:url('icons/restart2.png') no-repeat center center;
+}
+.icon-edit1{
+	background:url('icons/edit1.png') no-repeat center center;
+}
+.icon-edit2{
+	background:url('icons/edit2.png') no-repeat center center;
+}
