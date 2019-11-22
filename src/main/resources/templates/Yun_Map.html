@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="utf-8">
+<title>中国联通云基地专项监测</title>
+<link  th:href="@{/css/public.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/cloud.css}" rel="stylesheet" type="text/css">
+<!-- easyui-js -->
+<script  th:src="@{/js/jquery.min.js}"></script>
+<script  th:src="@{/js/jquery.easyui.min.js}"></script>
+<script  th:src="@{/js/easyui-lang-zh_CN.js}"></script>
+<!-- 扩展基础类js -->
+<script  th:src="@{/js/jquery.jdirk.min.js}"></script>
+<!-- jquery和easyui的扩展 -->
+<script th:src="@{/js/ext/jquery.comm.ext.js}"></script>
+ <script type="text/javascript" th:src="@{/js/echarts-2.2.0/echarts-3.js}" ></script>
+</head>
+
+<body>
+
+<body>
+<div class="page">
+  <div class="title">中国联通云基地专项监测</div>
+  <!--地图放置位置-->
+  <div class="cld-map">
+<!--    <img src="../images/item/cld-map.png" height="800">-->
+    <div id="mapChina" style="height: 800px;width: 80%"></div>
+  </div>
+  <!--全国平均时延-->
+<!--  <div class="cld-delay">联通全国平均时延/丢包率：<span class="cld-org">27.8ms / 0.07%</span></div> -->
+  <div  id="count" class="cld-delay"></div>
+  <!--地市时延-->
+  <div id="city" class="cld-city"></div>
+<!--  &lt;!&ndash;骨干网网间质量监测&ndash;&gt;-->
+<!--  <div class="cld-net">-->
+<!--    <h5 class="net-name">骨干网网间质量监测（ms）</h5>-->
+<!--    <div class="net-tab">&lt;!&ndash;7个&ndash;&gt;-->
+<!--      <table width="100%" border="0" cellspacing="0" cellpadding="0">-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--          <td width="13%" align="center"><span class="sd-num">1</span></td>-->
+<!--          <td width="24%">哈尔滨</td>-->
+<!--          <td width="37%">-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">2</span></td>-->
+<!--          <td>济南</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">3</span></td>-->
+<!--          <td>呼和浩特</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">4</span></td>-->
+<!--          <td>陕西</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">5</span></td>-->
+<!--          <td>河北</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">6</span></td>-->
+<!--          <td>河南</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">7</span></td>-->
+<!--          <td>广东</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--    <div class="net-tab">&lt;!&ndash;6个&ndash;&gt;-->
+<!--      <table width="100%" border="0" cellspacing="0" cellpadding="0">-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--          <td width="13%" align="center"><span class="sd-num">8</span></td>-->
+<!--          <td width="24%">山东</td>-->
+<!--          <td width="37%">-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">9</span></td>-->
+<!--          <td>上海</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">10</span></td>-->
+<!--          <td>湖北</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">11</span></td>-->
+<!--          <td>武汉</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">12</span></td>-->
+<!--          <td>重庆</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td align="center"><span class="sd-num">13</span></td>-->
+<!--          <td>广东</td>-->
+<!--          <td>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-light"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--            <span class="fam-gray"></span>-->
+<!--          </td>-->
+<!--          <td class="b-c">106.88</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+  <!--右侧矩阵-->
+  <div class="cld-matrix">
+    <div class="matrix-name">
+      <div class="fam-title floleft">云基地网际监测（时延）</div>
+    </div>
+    <table   id="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <!--地市网间质量趋势图-->
+  <div class="cld-trend">
+    <div id="table2" class="matrix-name">
+    </div>
+    <div id="mapline" class="trend-con">
+    </div>
+  </div>
+<!--  &lt;!&ndash;地市云基地重点网站监测-TOP10&ndash;&gt;
+  <div class="cld-website">
+    <div class="matrix-name">
+      <div class="fam-title floleft">哈尔滨云基地重点网站监测-TOP10</div>
+    </div>
+    <div class="website-con">
+      <img src="../images/item/cld02.png">
+    </div>
+  </div>
+</div>-->
+  <script type="text/javascript" th:src="@{/poj/YunWorld_main.js}"></script>
+  <script type="text/javascript" th:src="@{/js/echarts-2.2.0/build/dist/echarts-all.js}" ></script>
+</body>
+</html>

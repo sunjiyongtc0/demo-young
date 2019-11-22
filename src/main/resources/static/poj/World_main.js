@@ -219,6 +219,8 @@ world.initMap=function(options){
 	    }
 		
 			var myChart = echarts.init(dom_1,'dark');// 初始化echarts地图
+	console.log(config.data_1);
+	console.log(config.data_2);
 			var option = {
 				title : {
 					text : config.text,

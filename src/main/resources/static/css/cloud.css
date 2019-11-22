@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+/*01.html*/
+.page{ background:url(../images/yun-bj.png) no-repeat;
+	background-size:100% 100%;
+	position:absolute;
+	height:100%;
+	width:100%;
+	min-height:900px;
+	color:#b9fff6;
+}
+.title{ background:url(../images/yun-title.png) no-repeat;
+	background-size:100% 100%;
+	height:2.1rem;
+	text-align:center;
+	font-size:1rem;
+	line-height:1.9rem;
+	text-shadow:0.1rem 0.1rem 0.4rem #2087ba;
+	color:#fff179;
+	background-position:center;
+}
+/*地图宽高*/
+.cld-map{ width:80%;
+	position:absolute;
+	z-index:1;
+	left:7%;
+	height:800px;
+	top:50px;
+}
+.cld-delay,.cld-city,.cld-net{ position:absolute; left:1rem; z-index:2;}
+.cld-delay{ background:rgba(0,56,173,0.4);
+	border-radius:4px;
+	height:2rem;
+	width:16rem;
+	font-size:0.7rem;
+	text-align:center;
+	line-height:2rem;
+	top:3rem;
+}
+.cld-org{ color:#fff179; font-weight:bold;}
+.cld-city{background:rgba(0,56,173,0.4);
+	border-radius:4px;
+	width:12rem;
+	height:5rem;
+	top:5.5rem;
+}
+.city-name{ width:100%; float:left;
+	text-align:center;
+	line-height:1.4rem;
+	font-size:0.7rem;
+}
+.city-dey{ width:50%;
+	float:left;
+	background:#133e6e;
+	height:3.1rem;
+	padding-top:0.5rem;
+	text-align:center;
+	cursor:pointer;
+}
+.city-dey:hover{ background:#3a4c6d;}
+.cld-fon24{ font-size:1.2rem; line-height:1.6rem;}
+.city-dey.dey-click,.city-dey:hover.dey-click{ background:#5d6074; color:#fff179;}
+/*骨干网*/
+.sd-num{ background:rgba(0,0,0,.6); width:1rem; height:1rem; text-align:center; line-height:0.9rem; display:inline-block;border-radius:0.15rem; font-size:0.6rem;}
+.fam-gray,.fam-light{ width:.1rem; height:.4rem; display:inline-block; float:left; margin-left:.1rem;}
+.fam-gray{ background:#0c1b29;}
+.fam-light{ background:#04b4dc;}
+.cld-net{ bottom:1rem; width:26rem;}
+.net-name{ font-size:0.7rem; font-weight:normal; line-height:2rem; text-indent:0.5rem;}
+.net-tab{ width:50%; float:left;}
+.net-tab tr td{ line-height:1.4rem;}
+/*右侧矩阵*/
+.block-cor{ width:1.4rem; height:0.4rem; background:#83a7bb; display:inline-block;}
+.bg-ye{ background:#ffcc5f;}
+.bg-green{ background:#55f790}
+.bg-red{ background:#ff4646; color:#fff;}
+.c-ye{ color:#ffc855}
+.c-green{ color:#6cff9c}
+.c-red{ color:#ff8585;}
+.cld-matrix,.cld-trend,.cld-website{ position:absolute; width:24rem; right:1rem; z-index:2;}
+.cld-matrix{ text-align:center;
+	line-height:1.5rem;
+	color:#b9fff6;
+	font-size:0.7rem;
+	top:2.7rem;
+}
+.cld-matrix table,.trend-con,.website-con{background:rgba(0,0,0,0.2);}
+.cld-matrix table tr:nth-child(even){
+	background:rgba(0,0,0,.2);
+}
+.matrix-name{ background:url(../images/matrix-name.png) no-repeat left bottom;
+	height:1.6rem;
+	line-height:1.6rem;
+	color:#b9fff6;
+	font-size:0.7rem;
+	padding:0 0.2rem;
+	overflow:hidden;
+}
+/*地市趋势图*/
+.cld-trend{ top:12.2rem;}
+.trend-con,.website-con{ padding:0.3rem 0.5rem; overflow:hidden; width:23.4rem; float:left;}
+.trend-con{height:11.3rem; }
+.cld-website{ top:26rem;}
+.website-con{height:16rem; }
+.time-slot{ padding:0 8px; cursor:pointer; margin:0 2px; background:#2057a8; border-radius:0.1rem;}
+.time-slot.slo-click,.time-slot:hover.slo-click{ background:rgba(220,109,42,0.6); border-radius:0.1rem; color:#fff179;}
+.time-slot:hover{ background:#5b617c;}
