@@ -53,6 +53,7 @@ function f() {
     tableData=$.getJSONData("/Yun_Map/quotas");
     TableCountShow(src);
     TableLine(src)
+    TableColumn(src)
 }
 
 //中间地图线图
@@ -210,7 +211,6 @@ function TableLine(d) {
         "<div class=\"cla-time floright\">按时间：<span class=\"time-slot slo-click\">年</span><span class=\"time-slot\">月</span><span class=\"time-slot\">日</span></div>";
     $("#table2").html(s);
     var lineData=$.getJSONData("/Yun_Map/lineData?d="+d);
-    console.log(lineData);
     var mapChart = echarts.init(document.getElementById('mapline'));// 初始化echarts线图
     var option = {
         grid: {x:20,y:20, y2:25, x2:'3%',backgroundColor:'rgba(58,76,109,0.5)'},//曲线轴现在上下间隔宽度
@@ -267,5 +267,16 @@ function TableLine(d) {
             }
         ]
     };
+    mapChart.setOption(option);
+}
+
+function TableColumn(d) {
+    var s="";
+    s+=code[d]+"云基地重点网站监测-TOP10";
+    $("#table3").html(s);
+    var ColumnData=$.getJSONData("/Yun_Map/ColumnData?d="+d);
+    var mapChart = echarts.init(document.getElementById('mapColumn'));// 初始化echart柱图
+    // var option = {}
+
     mapChart.setOption(option);
 }

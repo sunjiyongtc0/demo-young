@@ -39,4 +39,16 @@ public class YunContoller {
         String q=yun.lineData(d);
         return q;
     }
+    @ResponseBody
+    @RequestMapping("/Yun_Map/ColumnData")
+    public String ColumnData(int d){
+        String q=yun.columnData(d);
+        return q;
+    }
+    @ResponseBody
+    @RequestMapping("/Yun_Map/StripData")
+    public String StripData(){
+        String q=yun.stripData();
+        return q;
+    }
 }

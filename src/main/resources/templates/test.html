@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<link  th:href="@{/css/public.css}" rel="stylesheet" type="text/css">
+<link  th:href="@{/css/cloud.css}" rel="stylesheet" type="text/css">
+<!-- easyui-js -->
+<script  th:src="@{/js/jquery.min.js}"></script>
+<script  th:src="@{/js/jquery.easyui.min.js}"></script>
+<script  th:src="@{/js/easyui-lang-zh_CN.js}"></script>
+<!-- 扩展基础类js -->
+<script  th:src="@{/js/jquery.jdirk.min.js}"></script>
+<!-- jquery和easyui的扩展 -->
+<script th:src="@{/js/ext/jquery.comm.ext.js}"></script>
+<script type="text/javascript" th:src="@{/js/echarts-4/echarts.js}" ></script>
+<script type="text/javascript" th:src="@{/js/echarts-4/china.js}"></script>
+</head>
+
+<body>
+
+<body>
+<div class="page">
+  <div class="title">中国联通云基地专项监测</div>
+  <!--地图放置位置-->
+  <div class="cld-map">
+    <!--    <img src="../images/item/cld-map.png" height="800">-->
+    <div id="mapChina" style="height: 800px;width: 80%"></div>
+  </div>
+  <!--全国平均时延-->
+  <!--  <div class="cld-delay">联通全国平均时延/丢包率：<span class="cld-org">27.8ms / 0.07%</span></div> -->
+  <div  id="count" class="cld-delay"></div>
+  <!--地市时延-->
+  <div id="city" class="cld-city"></div>
+    <!--骨干网网间质量监测-->
+    <div class="cld-net">
+      <h5 class="net-name">骨干网网间质量监测（ms）</h5>
+      <div class="net-tab"><!--7个-->
+        <table  id ="ts1" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="net-tab"><!--6个-->
+        <table id="ts2" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <!--右侧矩阵-->
+  <div class="cld-matrix">
+    <div class="matrix-name">
+      <div class="fam-title floleft">云基地网际监测（时延）</div>
+    </div>
+    <table   id="table1" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <!--地市网间质量趋势图-->
+  <div class="cld-trend">
+    <div id="table2" class="matrix-name">
+    </div>
+    <div id="mapline" class="trend-con">
+    </div>
+  </div>
+  <!--地市云基地重点网站监测-TOP10-->
+  <div class="cld-website">
+    <div class="matrix-name">
+      <div  id="table3" class="fam-title floleft"></div>
+    </div>
+    <div  id="mapColumn" class="website-con">
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" th:src="@{/poj/test_main.js}"></script>
+
+</body>
+</html>

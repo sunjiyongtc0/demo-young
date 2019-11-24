@@ -88,7 +88,7 @@
 .cld-matrix table tr:nth-child(even){
 	background:rgba(0,0,0,.2);
 }
-.matrix-name{ background:url(../images/matrix-name.png) no-repeat left bottom;
+.matrix-name{ background:url(../images/yun-matrix-name.png) no-repeat left bottom;
 	height:1.6rem;
 	line-height:1.6rem;
 	color:#b9fff6;
